@@ -21,8 +21,11 @@ sex = 1 if sex == "male" else 0
 input_data = np.array([[pclass, sex, age, sibsp, parch, fare]])
 
 # Predict button
-if st.button("Predict Survival"):
+if st.button("Predict Survival"): 
     prediction = model.predict(input_data)
-    st.write(f"The predicted Survival is: {prediction[0]}")
+    p= prediction[0]
+    if p==1:
+        st.write('Survived')
+    else: st.write('Not Survived')
 
 # Run the Streamlit app: streamlit run app.py
